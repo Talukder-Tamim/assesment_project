@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="col-md-12 col-lg-8 main-content">
+  <img src="{{ posts.image.url }}" alt="Image" class="img-fluid mb-5" width="500" height="500">
+    <div class="post-meta">
+      <span class="author mr-2"><img src="{{ profile.image.url }}" alt="" class="mr-2">{{ profile.full_name }}</span>
+      <span class="mr-2">{{ posts.date }}</span>
+    </div>
+
+  <h4>Title:</h4></br>
+  <p class="mb-4">{{ posts.title }}</p>
+  
+  <div class="post-content-body">
+    <h5>Description:</h5></br>
+    <p>{{ posts.description }}</p>
+  </br>
+</div>
+  <h5>Comments:</h5></br>
+  {% for comment in comments %}
+  <p>{{ comment.comments }}</p>
+  <hr>
+  {%endfor%}
+  {% if user.is_authenticated %}
+    <form action="/create_comment/{{ posts.id }}" method="POST">
+      {% csrf_token %} 
+      <b><label for="comment">Write comment:</label></b></br>
+      <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+  {%else%}
+    <div>
+      <div class="story-meta-data sONJ0"><time class="published-time fw8bp">You must be logged in to post a comment.</time></div>
+    </div>
+  {%endif%}
+  </br>
+</div>
+
+{% endblock %}
