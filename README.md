@@ -11,6 +11,7 @@ Answer:
 3. Install packages of requirement.txt files.
 4. Create migration file and migrate.
 5. Run the project.
+6. Enter this url: http://127.0.0.1:8000/signin
 
 Note: 
 1. Use django instead of lacking knowledge of FastApi. It will be easier for me if I get opportunity.
