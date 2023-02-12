@@ -14,4 +14,4 @@ Answer:
 
 Note: 
 1. Use django instead of lacking knowledge of FastApi. It will be easier for me if I get opportunity.
-2. Count not implement unittest due to time shortage. 
+2. Could not implement unittest due to time shortage. 
